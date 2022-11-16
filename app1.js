@@ -16,7 +16,6 @@ app.listen(port, ()=>{
 })
 
 app.post('/run', (req, res)=>{
-    console.log(req.body);
     let output = {};
     let token;
 
@@ -32,7 +31,6 @@ app.post('/run', (req, res)=>{
       data: req.body.jsonData
     };
     axios.request(executeOptions).then(function async (response) {
-        console.log(response.data);
         token = response.data.token;
     }).then(()=>{
         const receiveOptions = {
@@ -45,7 +43,6 @@ app.post('/run', (req, res)=>{
             }
         };
         axios.request(receiveOptions).then(function (response) {
-            console.log(response.data);
             output = {
                 stdout: response.data.stdout,
                 stderr: response.data.stderr,
