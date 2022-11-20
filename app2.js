@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = process.env.PORT2 || 5555;
+const port = process.env.PORT || 5555;
 
 function randomString(length) {
     var result           = '';
